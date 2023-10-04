@@ -87,7 +87,7 @@ const TotalVolumeperdagangan = () => {
     return () => {
       clearInterval(interval);
     };
-  }, []); // Dependensi kosong agar useEffect hanya berjalan sekali
+  }, [cryptoData]);
 
   useEffect(() => {
     const dbRef = firebase.database().ref('cryptoData');
@@ -103,7 +103,7 @@ const TotalVolumeperdagangan = () => {
     return () => {
       dbRef.off('value');
     };
-  }, []); // Dependensi kosong agar useEffect hanya berjalan sekali
+  }, []);
 
   useEffect(() => {
     if (cryptoData.length === 0) return;
